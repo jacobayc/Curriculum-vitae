@@ -1,14 +1,19 @@
 <script setup lang="ts">
-import Header from './components/Header.vue'
+import { ref } from 'vue'
+
+
 </script>
 
 <template>
-  <div id="app">
-    <Header v-if="this.$route.path == `/`"></Header>
+  <div class="detail">
     <router-view></router-view>
   </div>
 </template>
 
 <style scoped>
-  
+  .detail {
+    width: 100%;
+    height: 100vh;
+    color: #fff;
+  }
 </style>
