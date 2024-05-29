@@ -7,7 +7,7 @@ import DetailPath2 from '@/components/DetailPath2.vue';
 
 const routes: RouteRecordRaw[] = [
   {
-    path: '/H',
+    path: '/',
     name: 'Home',
     component: () => import('@/views/Home.vue'), 
   },

@@ -16,6 +16,7 @@ const count = ref(0)
   .headerWrap {
     width: 100%;
     height: 80px;
-    background: #ccc;
+    /* background: #242424; */
+    background-image: url('@/assets/front_bg.jpg');
   }
 </style>

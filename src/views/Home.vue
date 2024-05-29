@@ -1,23 +1,44 @@
 <template>
-  <section>
-    <h2>간단 소개</h2>
-    <div> {{ introText.text }}</div>
-  </section>
-
-  <section>
-    <h2>About Me</h2>
-    <div> {{ aboutMe.text }}</div>
-  </section>
+  <div class="home">
+    <section class="intro-title">
+      <div ref="titleRef">
+        <h1>Front-End</h1>
+        <p>프론트엔드 개발자 <strong>안예찬</strong>입니다.</p>
+        <div> {{ introTitle.text }}</div>
+      </div>
+    </section>
+    <!-- <section>
+      <div>
+        <h2>간단 소개</h2>
+        <div> {{ introText.text }}</div>
+      </div>
+    </section> -->
+  
+    <!-- <section>
+      <div>
+        <h2>About Me</h2>
+        <div> {{ aboutMe.text }}</div>
+      </div>
+    </section> -->
+  </div>
 </template>
 
 <script setup lang="ts">
 import { defineComponent } from 'vue';
-import { ref, reactive } from 'vue'
+import { ref, reactive, onMounted  } from 'vue'
 
 
 defineComponent({
   name: 'Home',
 });
+
+const titleRef = ref<HTMLDivElement | null>(null)
+
+const introTitle = reactive({
+  text : 
+  ` 
+  `
+})
 
 const introText = reactive({
   text : 
@@ -56,21 +77,55 @@ const aboutMe = reactive({
   `
 })
 
+onMounted (() => {
+  if(titleRef.value) {
+    setTimeout(() => {
+      titleRef.value!.style.transform = 'translateY(0)';
+    }, 0);
+  }
+})
+
 </script>
 
 <style scope lang="less">
-  section{
-    width: 100%;
-    padding: 10px 0;
-    h2 {
-      width: 96%;
-      margin: 10px auto;
+  .home {
+    width:100%;
+    height: 100vh;
+    background-image: url('@/assets/front_bg.jpg');
+    section{
+      width: 100%;
+      padding: 10px 0;
+      color: #fff;
+      &>div {
+        width: 1280px;
+        margin: 0 auto;
+        h2 {
+          width: 96%;
+          margin: 10px auto;
+        }
+        div {
+          width: 96%;
+          margin: 0 auto;
+          font-size: 14px;
+          white-space: pre-line;
+        }
+      }
     }
-    div {
-      width: 96%;
-      margin: 0 auto;
-      font-size: 14px;
-      white-space: pre-line;
-    }
+    .intro-title {
+        &>div {
+          transform:translatey(-400px);
+          transition: transform 0.7s ease-in;
+          background:rgba(107,190,210,0.5);
+          text-align: center;
+          h1 {
+            font-size:140px;
+          }
+          p {
+            font-size: 40px; 
+            color: #000;
+            letter-spacing: -2px;
+          }
+        }
+      }
   }
 </style>

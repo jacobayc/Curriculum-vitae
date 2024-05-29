@@ -109,7 +109,8 @@ onMounted(() => {
         width: 320px;
         height: 377px;
         background: #ebebeb;
-        margin-right: 22px;
+        margin-right: 11px;
+        margin-left: 11px;
         margin-bottom: 22px;
         transform:scale(0);
         transition: transform .8s ease-in-out;
@@ -142,7 +143,7 @@ onMounted(() => {
     }
   }
 
-  @media screen and (max-width: 720px) {
+  @media screen and (max-width: 760px) {
     .dev-log {
     margin:100px auto 0;
     &>ul {
@@ -151,7 +152,9 @@ onMounted(() => {
       &>li {
         width: 46%;
         height: 250px;
-        margin-right: 4%;
+        justify-content: space-around;
+        margin-left: 2%;
+        margin-right: 2%;
         transform:scale(0);
         transition: transform .8s ease-in-out;
         cursor: pointer;
